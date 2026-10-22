@@ -1,0 +1,7 @@
+{
+  "name": "cyberatlas-exposure-surface-check",
+  "version": "1.0.0",
+  "description": "Heuristic QA for internet-mapping results: public database ports, admin panels, dev hosts, TLS issues and legacy plaintext services",
+  "scripts": { "test": "node --test" },
+  "license": "MIT"
+}
