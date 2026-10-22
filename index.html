@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Exposure Surface Check</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <h1>Exposure Surface Check</h1>
+    <p class="sub">Internet-mapping only helps if someone reads the results with a security eye. Paste discovered services, one per line as <code>host | port | banner</code>, and the check flags potential exposure: database ports in public scans, admin panels without an auth hint, dev hosts visible in production scans, TLS concerns, and legacy plaintext services. Heuristic screen, not a vulnerability scanner.</p>
+  </header>
+
+  <section class="card">
+    <label class="lbl" for="scans">Discovered services, one per line: <code>host | port | banner</code></label>
+    <textarea id="scans" rows="8" spellcheck="false">www.example.com | 443 | nginx https
+db.example.com | 5432 | PostgreSQL 14 ready
+ops.example.com | 443 | Grafana dashboard v10
+staging.example.com | 443 | nginx
+mail.example.com | 443 | cert expired 2024-11</textarea>
+
+    <button id="run" type="button">Run surface check</button>
+  </section>
+
+  <section id="results" class="hidden">
+    <div class="card">
+      <h2>Findings <span id="stats" class="stats"></span></h2>
+      <ul id="findings" class="findings"></ul>
+    </div>
+  </section>
+
+  <footer>Plain HTML, CSS and JavaScript. No external services, build step or secrets. Tests: <code>npm test</code>.</footer>
+</main>
+<script src="exposure.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
